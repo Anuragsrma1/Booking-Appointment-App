@@ -32,6 +32,26 @@
    // localStorage.setItem(obj.email,JSON.stringify(obj))
    // showUserOnScreen(obj)
 }    
+
+  window.addEventListener("DOMContentLoaded", ()=> {
+        
+     axios.get("https://crudcrud.com/api/0059f115b1064e16af70a175445f0e99/appointmentdata")
+         
+     .then((response) => {
+
+        console.log(response);
+
+        for(var i=0; i<response.data.length; i++ ){
+         showUserOnScreen(response.data[i]);
+        } 
+   })
+   .catch((err) => {
+      console.log(err);
+   })
+  })
+
+
+
    function showUserOnScreen(obj){
     const parentElem = document.getElementById('listOfItems')
             
